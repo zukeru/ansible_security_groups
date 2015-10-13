@@ -123,4 +123,72 @@ The second argument is the environment to run. This will look at the directory g
 
 ----------
 
+#Workflow:
 
+##The workflow for the security groups is as follows.
+
+
+###Master Branch: The master branch is the state of the environment. 
+
+###To make a change:
+----------
+
+In order to make a change, please create a branch. Then simply make your change, commit to your branch and create a pull request. 
+
+----------
+
+Once the pull request is merged switch back to master on your local machine update your local files to the master and run the playbooks accordingly. 
+
+
+
+#Cleanup Unused Security Groups:
+
+##This script will either display or delete unused and used security group based on python arguments.
+
+###What is it?
+----------
+This script will connect AWS and look for security groups that are currently not in use. If the security group is not currently in use the program will then delete the security group if the --delete yes is passed to the script.
+
+
+###How to run:
+----------
+
+python cleanup.py --region us-west-2 --delete no --profile scratch
+
+----------
+
+###Sample output of what to expect with no delete flag set:
+
+----------
+	The list of security groups to be removed is below.
+	Run this again with `--delete` to remove them
+	[   u'1pauth',
+	    u'1pprofile',
+	    u'ES-elasticsearch-scratch-Scratch-Client-N0wZeA_V',
+	    u'JWFRemote',
+	    u'KAFKA-1p-kafka-zookeeper-snapshot-Scratch-Kafka-KYhp77eb',
+	    u'KAFKA-1p-kafka-zookeeper-snapshot-Scratch-Kafka-eRzgAn84',
+	    u'KAFKA-1p-kafka-zookeeper-snapshot-Scratch-Kafka-fwNhN2g1',
+	    u'dat_1pauth',
+	    u'developer_access',
+	    u'eelb',
+	    u'elb',
+	    u'example',
+	    u'graylog-graylog-elasticsearch-scratch-Scratch-client-u5msr5Ww',
+	    u'infra_asgard',
+	    u'infra_bastion',
+	    u'launch-wizard-1',
+	    u'launch-wizard-2',
+	    u'launch-wizard-3',
+	    u'mid_1pauth',
+	    u'mid_1pprofile',
+	    u'mid_1pzuul',
+	    u'mongo-db',
+	    u'simian-army',
+	    u'test',
+	    u'test2',
+	    u'test3',
+	    u'test4',
+	    u'wos_access']
+	Total of 28 groups targeted for removal.
+	[u'cost_savings_test', u'infra_eureka', u'default', u'graylog', u'bastion_access']
