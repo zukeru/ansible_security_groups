@@ -1,8 +1,5 @@
 # Ansible Security Group State-file Janitor Plugin
 ### by Grant Zukel
-### assisted by: Myles Parker, Tim Lewis, David Peterka, James Pancoast.
-
-
 
 #Introduction:
 The security group plugin is designed to aquire AWS security groups by environment and save them into ansible playbook files as state files. This is designed to help you maintain your AWS security groups.
